@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-card class="formGroup">
+    <h2>Get the first-level taxonomy of the URL</h2>
+
+    <mat-form-field>
+      <input matInput placeholder="Insert URL" class="inputURL" [formControl]="urlFormControl" />
+      <mat-hint>It will fetch the IBM Cloud API</mat-hint>
+      <mat-error *ngIf="urlFormControl.hasError('required')">
+        URL is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="urlFormControl.hasError('pattern')">
+        URL is <strong>invalid</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <br /><br />
+    <div class="text-center">
+      <button mat-raised-button color="primary" (click)="fetchURL()" [disabled]="urlFormControl.invalid || loading">Fetch</button>
+      <button mat-raised-button color="danger" (click)="reset()">Reset</button>
+    </div>
+
+    <br />
+
+    <div class="container" *ngIf="loading; else respTemplate">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <ng-template #respTemplate>
+      <div class="text-center" *ngIf="response?.label; else errorTemplate">
+        <h3>Result:</h3>
+        <mat-card class="text-center">
+          {{ response.label}}
+        </mat-card>
+      </div>
+
+      <ng-template #errorTemplate class="text-center">
+        {{ serverError }}
+      </ng-template>
+    </ng-template>
+
+  </mat-card>
+</div>

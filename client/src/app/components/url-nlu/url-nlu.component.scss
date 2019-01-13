@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.formGroup {
+  width: 500px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+mat-spinner {
+  width: 50px;
+}
+

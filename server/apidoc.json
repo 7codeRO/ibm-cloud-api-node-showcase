@@ -1,0 +1,6 @@
+{
+  "name": "CodeTest Taxonomy",
+  "version": "0.1.0",
+  "description": "Getting category by URL",
+  "url" : "http://localhost:3333/api/v1"
+}
